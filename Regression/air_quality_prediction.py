@@ -68,8 +68,3 @@ plt.show()
 print("\nEvaluation Result")
 _, mean_absolute_error = model.evaluate(test_input, test_output)
 print('\nMean Absolute Error: %.2f' %(mean_absolute_error))
-   
-
-
-
-

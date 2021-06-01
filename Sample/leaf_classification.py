@@ -23,8 +23,10 @@ train_input = train_dataframe.iloc[:,0:8]
 train_output = train_dataframe.iloc[:,8]
 test_input = test_dataframe.iloc[:,0:8]
 test_output = test_dataframe.iloc[:,8]
+
 #shuffle dataset
 train_dataframe = train_dataframe.sample(frac=1).reset_index(drop=True)
+print('\n')
 print(train_dataframe.head())
 
 #data visualization
@@ -79,7 +81,7 @@ plt.show()
 #evaluate model
 print("\nEvaluation Result")
 _, accuracy = model.evaluate(test_input, test_output)
-print('Accuracy: %.2f' %(accuracy*100))
+print('\nAccuracy: %.2f' %(accuracy*100))
 
 #predict model
 print('\n')
@@ -95,6 +97,3 @@ predictions = model.predict_classes(test_input)
 print ("{:<15} {:<10} {:<15}".format('InputVectors','ActualOutput','PredictedOutput'))
 for i in range(5):
     print ("{:<15} {:<10} {:<15}".format((i+1),predictions[i],test_output[i]))
-
-
-

@@ -42,6 +42,7 @@ dataframe['ever_married'] = ever_married_dict.fit_transform(dataframe['ever_marr
 dataframe['work_type'] = work_type_dict.fit_transform(dataframe['work_type'])
 dataframe['Residence_type'] = residence_type_dict.fit_transform(dataframe['Residence_type'])
 dataframe['smoking_status'] = smoking_status_dict.fit_transform(dataframe['smoking_status'])
+print('\n')
 print(dataframe.head(30))
 
 #shuffle dataset
@@ -91,7 +92,7 @@ network = model.fit (train_input, train_output, validation_split=0.33,epochs=10,
 #evaluate the model
 print("\nEvaluation Result")
 _, accuracy = model.evaluate(test_input, test_output)
-print('Accuracy: %.2f' %(accuracy*100))
+print('\nAccuracy: %.2f' %(accuracy*100))
 
 #network summary
 plt.plot(network.history['accuracy'])
@@ -101,5 +102,3 @@ plt.ylabel('Accuracy')
 plt.xlabel('Epoch')
 plt.legend(['accuracy', 'loss'], loc='lower right')
 plt.show()
-
-
