@@ -67,4 +67,11 @@ plt.show()
 #evaluate model
 print("\nEvaluation Result")
 _, mean_absolute_error = model.evaluate(test_input, test_output)
-print('\nMean Absolute Error: %.2f' %(mean_absolute_error))
+print('\nMean Absolute Error: %.2f\n' %(mean_absolute_error))
+
+#predict model
+prediction = model.predict(test_input[0:1])
+input_data = test_input[0:1].to_string(header=False, index=False)
+output_data = test_output[0:1].to_string(header=False, index=False)
+print ("{:<50} {:<15} {:<15}".format('InputVectors','ActualOutput','PredictedOutput'))
+print ("{:<50} {:<15} {:<15}".format(input_data,output_data,str(prediction)))

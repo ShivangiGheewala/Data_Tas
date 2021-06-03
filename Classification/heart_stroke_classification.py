@@ -92,7 +92,14 @@ network = model.fit (train_input, train_output, validation_split=0.33,epochs=10,
 #evaluate the model
 print("\nEvaluation Result")
 _, accuracy = model.evaluate(test_input, test_output)
-print('\nAccuracy: %.2f' %(accuracy*100))
+print('\nAccuracy: %.2f\n' %(accuracy*100))
+
+#predict model
+prediction = model.predict_classes(test_input[0:1])
+input_data = test_input[0:1].to_string(header=False, index=False)
+output_data = test_output[0:1].to_string(header=False, index=False)
+print ("{:<50} {:<15} {:<15}".format('InputVectors','ActualOutput','PredictedOutput'))
+print ("{:<50} {:<15} {:<15}".format(input_data,output_data,str(prediction)))
 
 #network summary
 plt.plot(network.history['accuracy'])
