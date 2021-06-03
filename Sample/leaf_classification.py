@@ -26,6 +26,7 @@ test_output = test_dataframe.iloc[:,8]
 
 #shuffle dataset
 train_dataframe = train_dataframe.sample(frac=1).reset_index(drop=True)
+test_dataframe = test_dataframe.sample(frac=1).reset_index(drop=True)
 print('\n')
 print(train_dataframe.head())
 
@@ -40,7 +41,8 @@ sns.barplot(output_count.index, output_count.values, alpha=0.8, palette=leaf_col
 plt.title('Class distribution')
 plt.ylabel('vectors', fontsize=12)
 plt.xlabel('leaves', fontsize=12)
-plt.show()
+plt.show(block=False)
+input('press <ENTER> to continue')
 
 # pie graph
 print('\n')
@@ -49,7 +51,7 @@ axis.pie(output_count, labels=labels, autopct='%1.2f%%',
         shadow=True, startangle=0, counterclock=False, colors=leaf_colours)
 axis.axis('equal') 
 axis.set_title('Class distribution')
-plt.show()
+plt.show(block=False)
 
 #sequential model
 model = keras.Sequential()
@@ -76,7 +78,7 @@ plt.title("Leaf Classification")
 plt.ylabel('Model Accuracy')
 plt.xlabel('Epoch')
 plt.legend(['training curve'], loc="upper left")
-plt.show()
+plt.show(block=False)
 
 #evaluate model
 print("\nEvaluation Result")
